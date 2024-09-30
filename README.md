@@ -22,3 +22,45 @@ Run `ng test appointment-library` to execute the unit tests via [Karma](https://
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Installation
+
+To install the Appointment Library, run the following command:
+
+### Install from GitHub or NPM
+
+```bash
+npm install git+https://github.com/vishalmajumdar95/appointment-library.git
+```
+OR
+
+```bash
+npm install appointment-library 
+```
+Note: The --force flag is used to override any dependency conflicts. Use it cautiously to avoid breaking changes in your project.
+
+### Usage
+Once the package is installed, you can import the `AppointmentLibraryModule` in your Angular application.
+
+### Import the Module
+In your Angular module (e.g., `app.module.ts`), import the `AppointmentLibraryModule`:
+
+
+```typescript
+import { AppointmentLibraryModule } from 'appointment-library';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [AppointmentLibraryModule],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+### Using the Component
+To use the appointment component, add the <lib-appointment-library> selector to your template file:
+
+```html
+<lib-appointment-library></lib-appointment-library>
+```
+This component will render the appointment scheduling UI.
