@@ -1,47 +1,22 @@
-import { ElementRef, OnInit } from '@angular/core';
+import { ElementRef, OnInit, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { AppointmentModel } from './model';
 import * as i0 from "@angular/core";
-export interface AppointmentDatas {
-    patientId: string;
-    patientName: string;
-    patientGender: string;
-    patientAge: number;
-    starts_in: string;
-    visit: {
-        location: {
-            name: string;
-        };
-    };
-    cheif_complaint: string;
-    telephone: string | null;
-    visitUuid: string;
-}
 export declare class AppointmentTableComponent implements OnInit {
-    items: string[];
-    expandedIndex: number;
-    displayedColumns: string[];
-    dataSource: MatTableDataSource<any, MatPaginator>;
-    isLoaded: boolean;
-    appointments: AppointmentDatas[];
+    rescheduleAppointment: EventEmitter<AppointmentModel>;
+    cancelAppointment: EventEmitter<AppointmentModel>;
+    appointmentVisitsCount: number;
     patientRegFields: string[];
+    ipSearchElement: ElementRef;
     paginator: MatPaginator;
-    searchElement: ElementRef;
-    ngAfterViewInit(): void;
-    constructor();
+    displayedColumns: string[];
+    tblDataSource: any;
     ngOnInit(): void;
-    /**
-    * Apply filter on a datasource
-    * @param {Event} event - Input's change event
-    * @return {void}
-    */
-    applyFilter1(event: Event): void;
-    /**
-    * Clear filter from a datasource
-    * @return {void}
-    */
-    clearFilter(): void;
     checkPatientRegField(fieldName: any): boolean;
+    applyFilter(event: Event): void;
+    clearFilter(): void;
+    reschedule(appointment: AppointmentModel): void;
+    cancel(appointment: AppointmentModel): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<AppointmentTableComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<AppointmentTableComponent, "lib-appointment-table", never, {}, {}, never, never, false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<AppointmentTableComponent, "lib-appointment-table", never, { "appointmentVisitsCount": "appointmentVisitsCount"; "patientRegFields": "patientRegFields"; }, { "rescheduleAppointment": "rescheduleAppointment"; "cancelAppointment": "cancelAppointment"; }, never, never, false>;
 }
